@@ -1,5 +1,5 @@
 services:
-  jupyterlab:
+  jupyterlab: 
     image: contransimage
     env_file:
       - .env
@@ -8,21 +8,35 @@ services:
     volumes: 
       - ./:/contrans2023
       - ./settings.txt:/root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings
-    networks:
+    networks: 
       - dbnetwork
   postgres:
     image: postgres:latest
-    env_file: 
+    env_file:
       - .env
-    ports:
+    ports: 
       - "5432:5432"
     volumes:
       - postgresdata:/var/lib/postgresql/data
     networks:
       - dbnetwork
 
+  mongo:
+    image: mongo:latest
+    env_file:
+      - .env
+    volumes:
+      - mongodata:/data/dbnetwork
+    ports:
+      - "27017:27017"
+    networks:
+      - dbnetwork
+
 volumes:
   postgresdata:
+  mongodata:
+
 
 networks:
-  dbnetwork:
+  dbnetwork: 
+      

@@ -20,4 +20,4 @@ WORKDIR /contrans2023
  
 EXPOSE 8888
  
-CMD ["jupyter","lab","--ip=0.0.0.0","--allow-root"
+CMD ["jupyter","lab","--ip=0.0.0.0","--allow-root"]
